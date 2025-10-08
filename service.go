@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"buf.build/go/protovalidate"
-	"github.com/gilperopiola/go-globant-grpc/pbs"
+	"github.com/gilperopiola/go-demo-grpc/pbs"
 )
 
 type service struct {

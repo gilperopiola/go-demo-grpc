@@ -8,7 +8,7 @@ import (
 	"syscall"
 
 	"buf.build/go/protovalidate"
-	"github.com/gilperopiola/go-globant-grpc/pbs"
+	"github.com/gilperopiola/go-demo-grpc/pbs"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )

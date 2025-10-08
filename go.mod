@@ -1,4 +1,4 @@
-module github.com/gilperopiola/go-globant-grpc
+module github.com/gilperopiola/go-demo-grpc
 
 go 1.25.0
 
