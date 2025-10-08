@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net"
 	"os"
@@ -19,7 +20,7 @@ func main() {
 		panic(err)
 	}
 
-	grpcServer := grpc.NewServer()
+	grpcServer := grpc.NewServer(grpc.UnaryInterceptor(loggingInterceptor))
 	service := &service{validator: validator}
 
 	pbs.RegisterAuthServiceServer(grpcServer, service)
@@ -43,4 +44,9 @@ func main() {
 	<-stop
 	log.Println("Shutting down server...")
 	grpcServer.GracefulStop()
+}
+
+var loggingInterceptor = func(ctx context.Context, req any, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp any, err error) {
+	log.Printf("Received request for method: %s", info.FullMethod)
+	return handler(ctx, req)
 }
