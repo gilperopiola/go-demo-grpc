@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pbs;
+option go_package = "github.com/gilperopiola/go-globant-grpc/pbs";
+
+import "buf/validate/validate.proto";
+
+message LoginRequest {
+  string username = 1 [(buf.validate.field).string = { min_len: 1, max_len: 140 }];
+  string password = 3 [(buf.validate.field).string = { min_len: 1, max_len: 140 }];
+}
+
+message LoginResponse {
+  string token = 1;
+}
+
+service AuthService {
+  rpc Login(LoginRequest) returns (LoginResponse);
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package pbs;
+option go_package = "github.com/gilperopiola/go-globant-grpc/pbs";
+
+import "buf/validate/validate.proto";
+
+message GetUsersRequest {
+  repeated int64 ids = 1 [
+    (buf.validate.field).repeated.unique = true, 
+    (buf.validate.field).repeated.min_items = 1
+  ];
+}
+
+message GetUsersResponse {
+  repeated string usernames = 1;
+}
+
+service UsersService {
+  rpc GetUsers(GetUsersRequest) returns (GetUsersResponse);
+}
