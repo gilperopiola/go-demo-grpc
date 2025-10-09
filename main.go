@@ -46,7 +46,13 @@ func main() {
 	grpcServer.GracefulStop()
 }
 
-var loggingInterceptor = func(ctx context.Context, req any, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp any, err error) {
+type grpcUnaryInterceptor func(ctx context.Context, req any, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (any, error)
+
+var loggingInterceptor = func(ctx context.Context, req any, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (any, error) {
 	log.Printf("Received request for method: %s", info.FullMethod)
-	return handler(ctx, req)
+	resp, err := handler(ctx, req)
+	if err != nil {
+		log.Printf("Error handling request for method: %s, error: %v", info.FullMethod, err)
+	}
+	return resp, err
 }
