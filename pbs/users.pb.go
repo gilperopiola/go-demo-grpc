@@ -7,13 +7,12 @@
 package pbs
 
 import (
-	reflect "reflect"
-	sync "sync"
-	unsafe "unsafe"
-
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	reflect "reflect"
+	sync "sync"
+	unsafe "unsafe"
 )
 
 const (
@@ -122,7 +121,7 @@ const file_users_proto_rawDesc = "" +
 	"\x10GetUsersResponse\x12\x1c\n" +
 	"\tusernames\x18\x01 \x03(\tR\tusernames2G\n" +
 	"\fUsersService\x127\n" +
-	"\bGetUsers\x12\x14.pbs.GetUsersRequest\x1a\x15.pbs.GetUsersResponseB-Z+github.com/gilperopiola/go-demo-grpc/pbsb\x06proto3"
+	"\bGetUsers\x12\x14.pbs.GetUsersRequest\x1a\x15.pbs.GetUsersResponseB*Z(github.com/gilperopiola/go-demo-grpc/pbsb\x06proto3"
 
 var (
 	file_users_proto_rawDescOnce sync.Once

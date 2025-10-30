@@ -7,13 +7,12 @@
 package pbs
 
 import (
-	reflect "reflect"
-	sync "sync"
-	unsafe "unsafe"
-
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	reflect "reflect"
+	sync "sync"
+	unsafe "unsafe"
 )
 
 const (
@@ -133,7 +132,7 @@ const file_auth_proto_rawDesc = "" +
 	"\rLoginResponse\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token2=\n" +
 	"\vAuthService\x12.\n" +
-	"\x05Login\x12\x11.pbs.LoginRequest\x1a\x12.pbs.LoginResponseB-Z+github.com/gilperopiola/go-demo-grpc/pbsb\x06proto3"
+	"\x05Login\x12\x11.pbs.LoginRequest\x1a\x12.pbs.LoginResponseB*Z(github.com/gilperopiola/go-demo-grpc/pbsb\x06proto3"
 
 var (
 	file_auth_proto_rawDescOnce sync.Once
